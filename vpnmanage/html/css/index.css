@@ -1,0 +1,96 @@
+html {
+	min-width: 1186px;
+    width: 99%;
+	left: 0px;
+	right: 0px;
+    overflow: visible;
+}
+/* 顶部*/
+.header	{
+	background-color: #19b955;
+	color: #fff;
+	z-index: 6666;
+	position: fixed;
+	left: 0px;
+	height: 70px;
+	min-width: 1186px;
+}
+/* 搜索 */
+.search {
+	position: fixed;
+	top: 22px;
+	z-index: 8888;
+	right: 8%;
+	color: #000;
+	height: 30px;
+	margin: 0px;
+	padding: 2px;
+	border: 1px;
+	font-size: 15px;
+}
+/*用户显示和分页 */
+.under-header {
+	height: 35px;
+	/*width: 100%;*/
+    margin-left: 25px;
+    padding: 5px;
+	color: #000;
+	font-size: 16px;
+	z-index: 5555;
+	top:70px;
+	right: 0px;
+}
+.page {
+    position: absolute;
+    padding: 2.5px;
+    width: 20%;
+    left: 40%;
+    right: 40%;
+    margin: 0px;
+    text-align: center;
+}
+/* 结果显示 */
+.result-show {
+	position: relative;
+	top: 80px;
+	min-width: 1186px;
+    padding: 0% 0 0 1%;
+}
+.table-self>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+    height: 40px;
+    padding: 0px;
+    /*border: 1px;*/
+}
+.table-self>tbody>tr>td>input {
+    border: 0px;
+    height: 100%;
+    width: 100%;
+}
+/* 显示用户 */
+.user-show {
+	width: 100px;
+	margin: 9px;
+	margin-bottom: 0px
+}
+/* 状态选择 */
+.select {
+	margin: 4px 0px 0px 115px;
+	padding-bottom: 4px;
+	text-align: center;
+}
+
+/* 底部按钮 */
+.footer-btn1 {
+	position: absolute;
+	left: 42%;
+    background-color: #19b955;
+    border-color: #19b955;
+}
+.footer-btn2 {
+	position: absolute;
+	right: 42%;
+    background-color: #19b955;
+    border-color: #19b955;
+}

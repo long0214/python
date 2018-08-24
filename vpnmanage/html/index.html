@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vpn-manage</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/index.css">
+	<script src="js/common/vue.js"></script>
+	<script src="js/common/axios.min.js"></script>
+</head>
+<body>
+	<div id="app" class="container-fluid" style="margin: 0px;padding: 0px;">
+		<!-- header & search-->
+		<div class="row">
+			<div class="header col-lg-12">
+				<h2>VPN账号管理</h2>
+				<div class="search">
+					<input class="search" style="width: 250px" type="text" v-model="search_text" v-on:keyup.enter="search"><button id="search" class="search btn" v-on:click="search">搜索</button>
+				</div>
+			</div>
+		</div>
+		<!-- usershow & select -->
+		<div class="row">
+			<div class="col-lg-4 under-header">
+				<span class="user-show">用户: 毛乾隆</span>
+				<select class="select" id="status_select" v-model="status_select">
+					<option value="all">所有账号</option>
+					<option value="used">已分配账号</option>
+					<option value="unused">未分配账号</option>
+				</select>
+			</div>
+            <!-- <div class="col-lg-1"></div> -->
+			<!-- 分页按钮 -->
+			<div class="col-lg-4 under-header page">
+				<nav aria-label="Page navigation" >
+					<ul class="pagination" style="height: 30px;margin: 1.5px;">
+						<li>
+							<a href="#" aria-label="Previous">
+								<span aria-hidden="true">&laquo;</span>
+							</a>
+						</li>
+						<li><a v-on:click="page_changed(1)">1</a></li>
+						<li><a v-on:click="page_changed(2)">2</a></li>
+						<li><a v-on:click="page_changed(3)">3</a></li>
+						<li><a v-on:click="page_changed(4)">4</a></li>
+						<li><a v-on:click="page_changed(5)">5</a></li>
+						<li>
+							<a href="#" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+		</div>
+		<!-- result show -->
+		<div class="row result-show" v-show="field_name.length != 0">
+			<div class="table-result col-lg-12">
+				<table class="table-self table table-bordered">
+					<thead>
+                        <th style="width: 4%;">选择</th>
+						<th v-for="item in field_name">{{ item }}</th>
+					</thead>
+					<tbody>
+						<tr v-for="vpn in vpnlist_show" v-bind:id="vpn.id">
+							<td style="width: 4%;"><input name="checkbox" style="height: 20px;width: 20px;" type="checkbox" v-on:click="checkbox_select(vpn.id)"></td>
+                            <td style="width: 5%">{{ vpn.id }}</td>
+							<td style="width: 9%">{{ vpn.account }}</td>
+							<td style="width: 16%">{{ vpn.vpn_ip }}</td>
+                            <td style="width: 16%">{{ vpn.vpn2_ip }}</td>
+                            <td style="width: 16%"><input name="project_name" type="text" v-bind:value="vpn.project_name"></td>
+                            <td style="width: 12%"><input name="user" type="text" v-bind:value="vpn.user"></td>
+                            <td style="width: 12%"><input name="phone_number" type="text" v-bind:value="vpn.phone_number"></td>
+                            <td style="width: 10%"><input name="bind_mac" type="text" v-bind:value="vpn.bind_mac"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- 申请 回收 -->
+		<div class="row result-show" v-show="field_name.length != 0">
+			<div class="col-lg-12">
+                <button class="btn btn-success footer-btn1" v-on:click="vpn_request">申请</button>
+                    <a id="add"></a>
+                <button class="btn btn-success footer-btn2" v-on:click="vpn_delete">回收</button>
+                    <a id="delete"></a>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/index.js"></script>
+</html>
