@@ -50,12 +50,6 @@ def main():
     birthdays = [
         # 1:公历  0:农历
         "MQL 2   14  1",
-        "LMX 2   14  1",
-        "RY  9   23  0",
-        "TYB 9   9   0",
-        "JY  1   5   0",
-        "LY  12  1   0",
-        "hh  7   14  0"
     ]
     items = filter(check_birth, birthdays)
     for item in items:
