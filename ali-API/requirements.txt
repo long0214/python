@@ -18,7 +18,7 @@ ptyprocess==0.6.0
 pycryptodome==3.6.6
 Pygments==2.2.0
 PyYAML==3.13
-requests==2.19.1
+requests==2.20.0
 scandir==1.7
 simplegeneric==0.8.1
 six==1.11.0
